@@ -55,3 +55,9 @@ Date: 2026-06-21
 - Bronze files kept as-is — no modification
 - Date column left as string in bronze — will cast to date type in silver layer
 - county Name lowercase inconsistency noted — will standardize in silver layer
+
+- Distinct counties: 781 (not all US counties have monitors)
+- Duplicate rows on same State+County+Date: 0
+- AQI range check: min=0, max=2971
+- 22 rows exceed AQI 500 — likely extreme wildfire events
+- Decision: keep as-is in bronze. Will apply range handling in silver layer.
