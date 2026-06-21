@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment variables — never commit real keys
+.env
+.env.*
+!.env.example
+
+# Data files and local databases — never commit raw data
+data/**
+!data/**/
+!data/**/.gitkeep
+*.duckdb
+*.duckdb.wal
+
+# dbt profiles — contains local paths
+dbt_airhealth/profiles.yml
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

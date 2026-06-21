@@ -1,0 +1,27 @@
+# Phase 0-1
+requests
+pandas
+pyarrow
+python-dotenv
+
+# Phase 3
+duckdb
+prefect
+
+# Phase 4
+dbt-core
+dbt-duckdb
+great-expectations
+
+# Phase 5
+streamlit
+plotly
+jupyter
+
+# Phase 8 — add when you reach ML
+scikit-learn
+xgboost
+lightgbm
+mlflow
+fastapi
+uvicorn
