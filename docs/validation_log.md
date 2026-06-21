@@ -31,3 +31,27 @@ Date: 2026-06-21
 - Total records saved across 2 runs: 64
 
 ### Status: COMPLETE
+
+## Phase 2 — EPA AirData Historical Backfill
+
+Date: 2026-06-21
+
+### Files Downloaded
+- daily_aqi_by_county_2021.csv — 326,540 rows
+- daily_aqi_by_county_2022.csv — 324,419 rows
+- daily_aqi_by_county_2023.csv — 325,399 rows
+- daily_aqi_by_county_2024.csv — 329,166 rows
+- daily_aqi_by_county_2025.csv — 213,103 rows (partial year through 2025-11-13)
+- Total: ~1.5 million rows
+
+### Validation Results
+- All files land in data/bronze/epa_airdata/ untouched
+- Date ranges confirmed correct for all 5 years
+- Distinct states: 54 (50 states + DC + territories)
+- Null AQI values: 0 across all files
+- Loader script runs without error: ingestion/epa_airdata_loader.py
+
+### Decisions
+- Bronze files kept as-is — no modification
+- Date column left as string in bronze — will cast to date type in silver layer
+- county Name lowercase inconsistency noted — will standardize in silver layer

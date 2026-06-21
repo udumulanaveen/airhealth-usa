@@ -34,3 +34,32 @@
 - Each API call returns one row per pollutant per location
 - Bronze files saved as: airnow_{city}_{YYYY_MM_DD_HHMMSS}.json
 - AQI values update hourly — rerunning script creates new file, never overwrites
+
+
+## EPA AirData — Daily AQI by County
+
+- Source: https://aqs.epa.gov/aqsweb/airdata/download_files.html
+- Download date: 2026-06-21
+- Files: daily_aqi_by_county_2021.csv through daily_aqi_by_county_2025.csv
+- Location: data/bronze/epa_airdata/
+- Total rows: ~1.5 million across 5 files
+- Grain: one row per county per day
+
+### Columns
+| Field | Type | Notes |
+|---|---|---|
+| State Name | string | Full state name |
+| county Name | string | County name — lowercase c, EPA inconsistency |
+| State Code | integer | Numeric state FIPS code |
+| County Code | integer | Numeric county FIPS code |
+| Date | string | YYYY-MM-DD format, read as string in bronze |
+| AQI | integer | Air Quality Index 0-500 |
+| Category | string | Good / Moderate / Unhealthy etc. |
+| Defining Parameter | string | Pollutant that drove the AQI value |
+| Defining Site | string | Monitoring station ID |
+| Number of Sites Reporting | integer | Count of stations contributing |
+
+### Validation Notes
+- 54 distinct states including DC and US territories
+- Zero null AQI values across all years
+- 2025 file is partial — runs through 2025-11-13
