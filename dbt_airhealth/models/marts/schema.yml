@@ -1,0 +1,81 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: "One row per calendar date, generated as a continuous range."
+    columns:
+      - name: date_key
+        description: "Surrogate key, YYYYMMDD as an integer."
+        tests:
+          - not_null
+          - unique
+      - name: date_day
+        description: "The actual calendar date."
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_location
+    description: "One row per unique state/county, from EPA data."
+    columns:
+      - name: location_key
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_station
+    description: "One row per unique AirNow reporting station."
+    columns:
+      - name: station_key
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_pollutant
+    description: "One row per unique pollutant, standardized across sources."
+    columns:
+      - name: pollutant_key
+        tests:
+          - not_null
+          - unique
+
+  - name: fact_air_quality_measurement
+    description: "One row per AQI measurement, combining AirNow and EPA."
+    columns:
+      - name: measurement_key
+        tests:
+          - not_null
+          - unique
+      - name: date_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_key
+      - name: pollutant_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_pollutant')
+                field: pollutant_key
+      - name: location_key
+        description: "Null for AirNow rows — only EPA rows have a location_key."
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_location')
+                field: location_key
+      - name: station_key
+        description: "Null for EPA rows — only AirNow rows have a station_key."
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_station')
+                field: station_key
+      - name: source_system
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['airnow', 'epa']
