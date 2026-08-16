@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: airnow
+    description: "Raw AirNow API live AQI data, loaded in Phase 3"
+    schema: main
+    tables:
+      - name: raw_airnow
+        description: "Raw AirNow JSON records from ingestion/duckdb_loader.py"
+
+  - name: epa_airdata
+    description: "Raw EPA AirData historical AQI data, loaded in Phase 3"
+    schema: main
+    tables:
+      - name: raw_epa_aqi
+        description: "Raw EPA AirData CSV records from ingestion/duckdb_loader.py"

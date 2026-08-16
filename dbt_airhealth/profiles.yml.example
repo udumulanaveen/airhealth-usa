@@ -1,7 +1,0 @@
-airhealth_usa:
-  target: dev
-  outputs:
-    dev:
-      type: duckdb
-      path: data/airhealth_usa.duckdb
-      threads: 4

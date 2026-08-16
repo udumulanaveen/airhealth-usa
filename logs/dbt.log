@@ -1,0 +1,59 @@
+[0m11:23:09.325892 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c1bed20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f0afd70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f0af9b0>]}
+
+
+============================== 11:23:09.328780 | 0be7f0cb-6694-40f0-a131-2d7846a90faf ==============================
+[0m11:23:09.328780 [info ] [MainThread]: Running with dbt=1.11.11
+[0m11:23:09.329044 [debug] [MainThread]: running dbt with arguments {'write_json': 'True', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'version_check': 'True', 'invocation_command': 'dbt init dbt_airhealth', 'profiles_dir': '/Users/naveenudumula/.dbt', 'cache_selected_only': 'False', 'no_print': 'None', 'introspect': 'True', 'log_path': 'logs', 'log_format': 'default', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'partial_parse': 'True', 'warn_error': 'None', 'quiet': 'False', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'static_parser': 'True', 'empty': 'None', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'indirect_selection': 'eager'}
+[0m11:23:09.350025 [info ] [MainThread]: Creating dbt configuration folder at /Users/naveenudumula/.dbt
+[0m11:23:09.350921 [info ] [MainThread]: A project called dbt_airhealth already exists here.
+[0m11:23:09.360233 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.07881842, "process_in_blocks": "0", "process_kernel_time": 0.212368, "process_mem_max_rss": "132972544", "process_out_blocks": "0", "process_user_time": 1.168448}
+[0m11:23:09.360515 [debug] [MainThread]: Command `dbt init` succeeded at 11:23:09.360468 after 0.08 seconds
+[0m11:23:09.360686 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ec07380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10de46720>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e8e9a30>]}
+[0m11:23:09.360843 [debug] [MainThread]: Flushing usage events
+[0m11:23:09.796229 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:25:04.483515 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dfe5df0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f1b8560>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f1b82c0>]}
+
+
+============================== 11:25:04.486529 | d365bc9e-d107-4372-af8d-9175745a2353 ==============================
+[0m11:25:04.486529 [info ] [MainThread]: Running with dbt=1.11.11
+[0m11:25:04.486784 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'log_path': 'logs', 'profiles_dir': '/Users/naveenudumula/.dbt', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'empty': 'None', 'use_experimental_parser': 'False', 'printer_width': '80', 'cache_selected_only': 'False', 'warn_error': 'None', 'static_parser': 'True', 'write_json': 'True', 'introspect': 'True', 'target_path': 'None', 'partial_parse': 'True', 'version_check': 'True', 'quiet': 'False', 'indirect_selection': 'eager', 'debug': 'False', 'fail_fast': 'False', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt init dbt_airhealth', 'no_print': 'None'}
+[0m11:25:04.504404 [debug] [MainThread]: Starter project path: /Users/naveenudumula/Desktop/airhealth-usa/.venv/lib/python3.12/site-packages/dbt/include/starter_project
+[0m11:25:04.514493 [info ] [MainThread]: 
+Your new dbt project "dbt_airhealth" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m11:25:04.514676 [info ] [MainThread]: Setting up your profile.
+[0m11:25:31.715455 [info ] [MainThread]: Profile dbt_airhealth written to /Users/naveenudumula/.dbt/profiles.yml using target's sample configuration. Once updated, you'll be able to start developing with dbt.
+[0m11:25:31.718491 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 27.274239, "process_in_blocks": "0", "process_kernel_time": 0.235838, "process_mem_max_rss": "151863296", "process_out_blocks": "0", "process_user_time": 1.188104}
+[0m11:25:31.719212 [debug] [MainThread]: Command `dbt init` succeeded at 11:25:31.719077 after 27.28 seconds
+[0m11:25:31.719704 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f1b83e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f134350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ee1a930>]}
+[0m11:25:31.720230 [debug] [MainThread]: Flushing usage events
+[0m11:25:32.160034 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:07:25.652936 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ac23830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b3805c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b380320>]}
+
+
+============================== 20:07:25.655662 | 43bf7796-178a-48d1-a4d8-a0ff69413972 ==============================
+[0m20:07:25.655662 [info ] [MainThread]: Running with dbt=1.11.11
+[0m20:07:25.655919 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'printer_width': '80', 'version_check': 'True', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'cache_selected_only': 'False', 'log_path': 'logs', 'use_colors': 'True', 'use_experimental_parser': 'False', 'invocation_command': 'dbt list --resource-type source', 'log_format': 'default', 'fail_fast': 'False', 'debug': 'False', 'indirect_selection': 'eager', 'profiles_dir': '/Users/naveenudumula/.dbt', 'empty': 'None', 'write_json': 'True', 'introspect': 'True', 'quiet': 'False', 'no_print': 'None', 'warn_error': 'None', 'partial_parse': 'True'}
+[0m20:07:25.656173 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/naveenudumula/Desktop/airhealth-usa/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m20:07:25.662293 [debug] [MainThread]: Resource report: {"command_name": "list", "command_success": false, "command_wall_clock_time": 0.05482729, "process_in_blocks": "0", "process_kernel_time": 0.289182, "process_mem_max_rss": "133349376", "process_out_blocks": "0", "process_user_time": 1.297453}
+[0m20:07:25.662550 [debug] [MainThread]: Command `dbt list` failed at 20:07:25.662502 after 0.06 seconds
+[0m20:07:25.662713 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b2d5b50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b142000>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ae90ce0>]}
+[0m20:07:25.662878 [debug] [MainThread]: Flushing usage events
+[0m20:07:26.168965 [debug] [MainThread]: An error was encountered while trying to flush usage events
