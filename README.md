@@ -4,6 +4,9 @@
 
 A full-stack data engineering project that ingests, models, and analyzes US air quality data alongside weather and public health indicators.
 
+## Live Dashboard
+https://airhealth-usa-k5mbdcjcabhqjaysvjvrpz.streamlit.app
+
 ## What This Project Builds
 - Live AQI ingestion pipeline from the AirNow API
 - Historical backfill from EPA AirData
@@ -24,4 +27,10 @@ Python · DuckDB · Parquet · dbt Core · Prefect · Great Expectations · Stre
 - CDC PLACES (public health)
 
 ## Status
-Phase 0 — Project setup complete
+- Phase 0 — Project setup — complete
+- Phase 1 — AirNow live AQI ingestion — complete
+- Phase 2 — EPA AirData historical backfill — complete
+- Phase 3 — DuckDB + Parquet local warehouse — complete
+- Phase 4 — dbt Core star schema and gold marts — complete
+- Phase 5 — Streamlit dashboard and EDA — complete
+- Phase 6 — Open-Meteo weather integration — next
