@@ -23,3 +23,7 @@ dbt_airhealth/profiles.yml
 .DS_Store
 .vscode/
 .idea/
+# Exception: commit the built warehouse so the deployed dashboard has data to query
+!data/airhealth_usa.duckdb
+# Jupyter autosave checkpoints — not real content
+.ipynb_checkpoints/

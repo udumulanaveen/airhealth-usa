@@ -1,63 +1,28 @@
-## Phase 0 — Project Setup
+## Phase 5 — Streamlit Dashboard and EDA
 
-- git status: nothing to commit, working tree clean
-- ls data/bronze/: airnow_live, cdc_health, epa_airdata, weather all present
-- .gitignore confirms data/** pattern is in place
-- First commit: fc87fea — Initialize AirHealth USA project structure
-- GitHub push: confirmed at https://github.com/udumulanaveen/airhealth-usa
-- Decision: used .venv for isolation, python3 consistently over python
-
----
-
-## Phase 1 — AirNow API Live Ingestion
-Date: 2026-06-21
+Date: 2026-08-15
 
 ### Validations
 
 | Check | Command | Result |
 |---|---|---|
-| API key loads from .env | python3 -c "from dotenv import load_dotenv..." | Key printed correctly |
-| HTTP status all cities | python3 ingestion/airnow_api_ingest.py | 200 for all 12 cities |
-| Files saved to bronze | ls data/bronze/airnow_live/ | 24 files after 2 runs |
-| No overwrite on rerun | ls data/bronze/airnow_live/ wc -l | 12 new files per run |
-| JSON schema inspected | cat airnow_fort_wayne_in_...json | 2 records, all fields present |
-| Schema documented | cat docs/data_sources.md | 11 fields documented |
+| App starts | streamlit run dashboard/streamlit_app.py | Runs without error, opens at localhost:8501 |
+| Charts load | Visual check in browser | All 6 views render: national overview, current AQI by city, AQI trend by state, worst AQI days, category distribution, PM2.5 vs O3 trend |
+| Filters work | Changed state/date range in sidebar | Charts and tables update correctly |
+| Numbers match independent query | python3 -c "... GROUP BY state_name ..." vs chart hover | Top 5 states matched exactly: California 54.02, DC 49.65, Arizona 49.38, Utah 49.19, Oklahoma 47.17 |
+| Jupyter installed | jupyter notebook --version | 7.6.0 |
+| EDA notebook runs | notebooks/01_aqi_eda.ipynb, run top to bottom | No errors — describe() and groupby queries return expected results |
+| Deployed URL opens publicly | (pending) | Not yet deployed |
 
-### Observations
-- Each city returns 2-3 records depending on pollutants monitored
-- 12 cities across all US regions — 32 total records per run
-- Category field is nested — will flatten in silver layer
-- Fort Wayne O3 changed from 25 to 35 between runs — confirms live data
-- Total records saved across 2 runs: 64
+### Findings
 
-### Status: COMPLETE
-
-## Phase 2 — EPA AirData Historical Backfill
-
-Date: 2026-06-21
-
-### Files Downloaded
-- daily_aqi_by_county_2021.csv — 326,540 rows
-- daily_aqi_by_county_2022.csv — 324,419 rows
-- daily_aqi_by_county_2023.csv — 325,399 rows
-- daily_aqi_by_county_2024.csv — 329,166 rows
-- daily_aqi_by_county_2025.csv — 213,103 rows (partial year through 2025-11-13)
-- Total: ~1.5 million rows
-
-### Validation Results
-- All files land in data/bronze/epa_airdata/ untouched
-- Date ranges confirmed correct for all 5 years
-- Distinct states: 54 (50 states + DC + territories)
-- Null AQI values: 0 across all files
-- Loader script runs without error: ingestion/epa_airdata_loader.py
+1. Mono County, CA shows extreme PM10 spikes (max_aqi up to 8368, far beyond the normal 0–500 AQI scale), concentrated in spring months (April–June account for 59% of occurrences). This matches known windblown dust events from the dry Mono/Owens Lake basin — a real environmental phenomenon, not a data pipeline error.
+2. Contrary to the common assumption that PM2.5 peaks in winter, this dataset shows both PM2.5 and ozone AQI peaking together in summer (June–August). Likely explanation: US wildfire season (smoke → PM2.5) overlaps with peak ozone-forming heat and sunlight conditions.
+3. California has the highest average AQI of any state (54.0) across 2021–2025, followed by District of Columbia (49.7), Arizona (49.4), Utah (49.2), and Oklahoma (47.2) — confirmed against an independent DuckDB query, not just the dashboard chart.
 
 ### Decisions
-- Bronze files kept as-is — no modification
-- Date column left as string in bronze — will cast to date type in silver layer
-- county Name lowercase inconsistency noted — will standardize in silver layer
+- Excluded "Country Of Mexico" (a non-US entry in EPA's state_name field) from the National Overview chart — a border-monitoring artifact, not a real state.
+- National Overview limited to the worst 20 states, not all 54 — the full list was mostly uniform green and less readable.
+- National Overview and Pollutant Trends charts are intentionally unfiltered by the sidebar (always show the full picture); Trend, Worst Days, and Category Distribution respect the state/date filters.
 
-- Distinct counties: 781 (not all US counties have monitors)
-- Duplicate rows on same State+County+Date: 0
-- AQI range check: min=0, max=2971
-- 22 rows exceed AQI 500 — likely extreme wildfire events
-- Decision: keep as-is in bronze. Will apply range handling in silver layer.
+### Status: IN PROGRESS — dashboard and EDA complete, deployment to Streamlit Community Cloud pending
