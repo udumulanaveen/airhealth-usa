@@ -25,4 +25,9 @@ Date: 2026-08-15
 - National Overview limited to the worst 20 states, not all 54 — the full list was mostly uniform green and less readable.
 - National Overview and Pollutant Trends charts are intentionally unfiltered by the sidebar (always show the full picture); Trend, Worst Days, and Category Distribution respect the state/date filters.
 
+Change the row | Deployed URL opens publicly | (pending) | Not yet deployed | to:
+| Deployed URL opens publicly | https://airhealth-usa-k5mbdcjcabhqjaysvjvrpz.streamlit.app | Confirmed — live and public, all 6 views render with real data |
+Change ### Status: IN PROGRESS — dashboard and EDA complete, deployment to Streamlit Community Cloud pending to:
+### Status: COMPLETE
+
 ### Status: IN PROGRESS — dashboard and EDA complete, deployment to Streamlit Community Cloud pending
