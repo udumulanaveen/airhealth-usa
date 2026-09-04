@@ -18,7 +18,7 @@ https://airhealth-usa-k5mbdcjcabhqjaysvjvrpz.streamlit.app
 - ML models tracked with MLflow, served via FastAPI
 
 ## Tools
-Python · DuckDB · Parquet · dbt Core · Prefect · Great Expectations · Streamlit · MLflow · FastAPI
+Python · DuckDB · Parquet · dbt Core · Prefect · Streamlit · MLflow · FastAPI
 
 ## Data Sources
 - AirNow API (live AQI)
